@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JavaScript进阶--02 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="基础语法学习目标
+了解
+
+ 重新认识instanceof
+
+- 原型链不可变
+- for..in的问题
+重点
+
+重点
+
+上下文调用模式
+
+js中的继承
+
+闭包
+
+
+
+
+1. 重新认识instance,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/worldwide.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">JavaScript进阶--02</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">JavaScript进阶--02</h1>
+        <div class="stuff">
+            <span>四月 27, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li>了解</li>
+</ul>
+<pre><code> 重新认识instanceof
+
+- 原型链不可变
+- for..in的问题</code></pre><ul>
+<li><p>重点</p>
+</li>
+<li><p>重点</p>
+<ul>
+<li><p>上下文调用模式</p>
+</li>
+<li><p>js中的继承</p>
+</li>
+<li><p>闭包</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-重新认识instanceof"><a href="#1-重新认识instanceof" class="headerlink" title="1. 重新认识instanceof"></a>1. 重新认识instanceof</h2><p>js基础阶段对instanceof作用的描述 : <strong>判断一个对象是否是某个构造函数的实例</strong></p>
+<p>现在我们学习了原型,也学习了原型链,所以我们现在可以更严谨的描述他的作用:</p>
+<p><strong>判断一个函数的原型对象,是否在实例对象的原型链上</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Object</span>);  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-原型链不可变"><a href="#2-原型链不可变" class="headerlink" title="2. 原型链不可变"></a>2. 原型链不可变</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(p1 <span class="keyword">instanceof</span> Person); <span class="comment">// ?</span></span><br><span class="line"></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span> : Person,</span><br><span class="line">    a : 1</span><br><span class="line">&#125;</span><br><span class="line">console.log(p1 instanceof Person); // ?</span><br><span class="line">var p2 = new Person();</span><br><span class="line">console.log(p2 instanceof Person); // ?</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/04/27/JavaScript%E8%BF%9B%E9%98%B6--02/原型链不可变.png">
+
+<p>##3. 上下文调用函数</p>
+<h3 id="3-1-回顾之前我们学习的调用函数的几种方式"><a href="#3-1-回顾之前我们学习的调用函数的几种方式" class="headerlink" title="3.1 回顾之前我们学习的调用函数的几种方式"></a>3.1 回顾之前我们学习的调用函数的几种方式</h3><ul>
+<li><p>普通调用</p>
+<blockquote>
+<p>this – &gt; window</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">// window</span></span><br><span class="line">&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象调用</p>
+<blockquote>
+<p>this – &gt; obj</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>) <span class="comment">// obj</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    f : fn</span><br><span class="line">&#125;;</span><br><span class="line">obj.f();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构造函数调用</p>
+<blockquote>
+<p>this – &gt; 构造函数的实例</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name; <span class="comment">//this --&gt; 实例</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person(<span class="string">'zs'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定时器中的回调函数</p>
+<blockquote>
+<p>this – &gt; window</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">// window</span></span><br><span class="line">&#125;,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事件处理函数调用</p>
+<blockquote>
+<p>this –&gt; 事件源</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">box.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// box</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<p><strong>我们总结了一句话: this的指向是在函数调用时决定的. 谁调用这个函数,this指向谁</strong></p>
+<h3 id="3-2-上下文调用函数的三个方法"><a href="#3-2-上下文调用函数的三个方法" class="headerlink" title="3.2 上下文调用函数的三个方法"></a>3.2 上下文调用函数的三个方法</h3><blockquote>
+<p>为什么要学习上下文调用函数?</p>
+<p>因为这样我们就可以随意的控制函数中this的指向</p>
+</blockquote>
+<h4 id="3-2-1-call方法"><a href="#3-2-1-call方法" class="headerlink" title="3.2.1  call方法"></a>3.2.1  call方法</h4><p><strong>作用:</strong> 调用该函数,并修改函数中this的指向</p>
+<p>*<em>语法: *</em> 函数名. call(对象,[实参]);</p>
+<p><strong>参数详解:</strong></p>
+<p>第一个参数: 要让函数中this指向谁,就写谁</p>
+<p>后面的参数: 被调用函数要传入的实参,以逗号分隔</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// ['a','b','c']</span></span><br><span class="line">    <span class="built_in">console</span>.log(x + y); <span class="comment">//8</span></span><br><span class="line">&#125;</span><br><span class="line">fn.call([<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>], <span class="number">3</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-apply-方法"><a href="#3-2-2-apply-方法" class="headerlink" title="3.2.2 apply 方法"></a>3.2.2 apply 方法</h4><p><strong>作用:</strong> 调用该函数,并修改函数中this的指向</p>
+<p>*<em>语法: *</em> 函数名. apply(对象,数组);</p>
+<p><strong>参数详解:</strong></p>
+<p>第一个参数: 要让函数中this指向谁,就写谁</p>
+<p>第二个参数: 要去传入一个数组,里面存放被调用函数需要的实参</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// &#123;a : 1&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(x + y); <span class="comment">//8</span></span><br><span class="line">&#125;</span><br><span class="line">fn.apply(&#123;<span class="attr">a</span> : <span class="number">1</span>&#125;, [<span class="number">3</span>, <span class="number">5</span>]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-3-bind方法"><a href="#3-2-3-bind方法" class="headerlink" title="3.2.3 bind方法"></a>3.2.3 bind方法</h4><p><strong>作用:</strong> 不调用函数,克隆一个新的函数,并修改新函数中this的指向,将新的函数返回</p>
+<p>*<em>语法: *</em> 函数名. bind(对象[,实参]);</p>
+<p><strong>参数详解:</strong></p>
+<p>第一个参数: 要让函数中this指向谁,就写谁</p>
+<p>后面的参数: 被调用函数要传入的实参,以逗号分隔</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//调用newFn时打印结果</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);  <span class="comment">//&#123;b:2&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(x + y); <span class="comment">//8</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newFn = fn.bind(&#123;<span class="attr">b</span>:<span class="number">2</span>&#125;, <span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">newFn();</span><br></pre></td></tr></table></figure>
+
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结:"></a>小结:</h4><ul>
+<li>call和apply 会调用函数 ,  bind不会调用函数</li>
+<li>apply要求把实参放到数组中,然后把数组传进来</li>
+</ul>
+<h2 id="4-for-in的问题"><a href="#4-for-in的问题" class="headerlink" title="4. for..in的问题"></a>4. for..in的问题</h2><blockquote>
+<p>for…in 遍历时,会把原型上的属性也遍历出来</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.type = <span class="string">'human'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> zs = <span class="keyword">new</span> Person(<span class="string">'zs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> zs)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key); <span class="comment">// name , type  把type也打印出来了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果我们就想打印对象自己身上的属性,可以使用hasOwnProperty方法来解决</p>
+<p>*<em>hasOwnProperty的作用: *</em> 判断是不是对象自己的属性</p>
+<p>*<em>hasOwnProperty的语法: *</em> 对象.hasOwnProperty(‘属性’) 是则返回true, 否则false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.type = <span class="string">'human'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> zs = <span class="keyword">new</span> Person(<span class="string">'zs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> zs)&#123;</span><br><span class="line">    <span class="keyword">if</span>(zs.hasOwnProperty(key))&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(key);   <span class="comment">//只有自己的name</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>##5. js中的继承</p>
+<h3 id="5-1-为什么要学习js中的继承"><a href="#5-1-为什么要学习js中的继承" class="headerlink" title="5.1 为什么要学习js中的继承"></a>5.1 为什么要学习js中的继承</h3><p>此时我们希望stu2对象,也拥有stu1对象的class, subject这些属性,但是我们不想再重新写一遍,怎么办?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stu1 = &#123;</span><br><span class="line">    class : '三年级',</span><br><span class="line">    subject : <span class="string">'Chinese'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu2 = &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-2-两个对象之间的继承"><a href="#5-2-两个对象之间的继承" class="headerlink" title="5.2 两个对象之间的继承"></a>5.2 两个对象之间的继承</h3><h4 id="5-2-1-遍历对象"><a href="#5-2-1-遍历对象" class="headerlink" title="5.2.1 遍历对象"></a>5.2.1 遍历对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stu1 = &#123;</span><br><span class="line">    class : '三年级',</span><br><span class="line">    subject : <span class="string">'Chinese'</span>,</span><br><span class="line">    score : <span class="number">98</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu2 = &#123;</span><br><span class="line">    score :<span class="number">82</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过for..in遍历far</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> far)&#123;</span><br><span class="line">    stu2[key] = stu1[key];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(stu2); <span class="comment">// 此时stu2拥有了class,score和subject .</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>但是以上代码书写存在一个问题 : 把score的值也继承下来了.我们希望自己有的,就不继承了.所以我们要改一下代码</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> far)&#123;</span><br><span class="line">    <span class="comment">//自己没有的才继承</span></span><br><span class="line">    <span class="keyword">if</span>(!stu2.hasOwnProperty(key))&#123;</span><br><span class="line">        stu2[key] = stu1[key];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这样处理解决刚才的问题,但是我们发现两个对象上面存在一样的代码.这样比较占用内存</strong></p>
+<h4 id="5-2-2-通过create方法实现继承"><a href="#5-2-2-通过create方法实现继承" class="headerlink" title="5.2.2  通过create方法实现继承"></a>5.2.2  通过create方法实现继承</h4><blockquote>
+<p>通过ceate方法实现继承,可以避免遍历对象方式,占用内存的问题</p>
+</blockquote>
+<p>*<em>create方法语法:  *</em>Object.create(参考对象) 返回一个新的对象</p>
+<p>*<em>create方法的作用: *</em> 返回的新的对象的<code>__proto__</code> 指向参考对象  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stu1 = &#123;</span><br><span class="line">     class : '三年级',</span><br><span class="line">    subject : <span class="string">'Chinese'</span>,</span><br><span class="line">    score : <span class="number">98</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu2 = <span class="built_in">Object</span>.create(stu1);</span><br><span class="line">stu2.score = <span class="number">89</span>;</span><br><span class="line"><span class="built_in">console</span>.log(stu2.class); <span class="comment">//'三年级'</span></span><br><span class="line"><span class="built_in">console</span>.log(stu2.subject); <span class="comment">//'Chinese'</span></span><br><span class="line"><span class="built_in">console</span>.log(stu2.score); <span class="comment">//89</span></span><br><span class="line"><span class="built_in">console</span>.log(stu2.__proto__ === stu1); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-3-构造函数的继承"><a href="#5-3-构造函数的继承" class="headerlink" title="5.3 构造函数的继承"></a>5.3 构造函数的继承</h3><blockquote>
+<p>我们工作中要经常创建多个具有相同属性的对象,所以经常要写构造函数.</p>
+<p>那么构造函数创建的出来的对象该如何实现继承呢?</p>
+</blockquote>
+<h4 id="5-3-1-借用构造函数"><a href="#5-3-1-借用构造函数" class="headerlink" title="5.3.1 借用构造函数"></a>5.3.1 借用构造函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'hello, '</span> + <span class="string">'我是'</span> + <span class="keyword">this</span>.name );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, age, score</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.score = score;</span><br><span class="line">    Person.call(<span class="keyword">this</span>, name, age);<span class="comment">//借用构造函数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu = <span class="keyword">new</span> Student(<span class="string">'zs'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stu); <span class="comment">//&#123;score : 100, name : zs, age : 18&#125;</span></span><br><span class="line">stu.sayHello(); <span class="comment">//hello, 我是zs</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>但是我们一般不会把方法写在构造函数的函数体内,我们把方法写在函数的原型上,那么这个时候构造借用函数就无法继承方法了,我们想要继承原型上的方法.可以用原型继承</strong></p>
+<h4 id="5-3-2-原型继承"><a href="#5-3-2-原型继承" class="headerlink" title="5.3.2 原型继承"></a>5.3.2 原型继承</h4><blockquote>
+<p>用来继承方法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'hello, '</span> + <span class="string">'我是'</span> + <span class="keyword">this</span>.name );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, age, score</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.score = score;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu = <span class="keyword">new</span> Student(<span class="string">'zs'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stu); <span class="comment">//&#123;score : 100&#125;</span></span><br><span class="line">stu.sayHello(); <span class="comment">//hello, 我是undefined</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2020/04/27/JavaScript%E8%BF%9B%E9%98%B6--02/原型继承.png">  
+
+<p><strong>我们发现,方法继承下来了,但是属性却没有继承下来</strong></p>
+<h4 id="5-3-3-组合继承"><a href="#5-3-3-组合继承" class="headerlink" title="5.3.3 组合继承"></a>5.3.3 组合继承</h4><blockquote>
+<p>借用构造函数 + 原型继承</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'hello, '</span> + <span class="string">'我是'</span> + <span class="keyword">this</span>.name );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, age, score</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.score = score;</span><br><span class="line">    Person.call(<span class="keyword">this</span>, name, age);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stu = <span class="keyword">new</span> Student(<span class="string">'zs'</span>, <span class="number">18</span>, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(stu); <span class="comment">//&#123;score : 100, name : zs, age : 18&#125;</span></span><br><span class="line">stu.sayHello(); <span class="comment">//hello, 我是zs</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>##6. 闭包</p>
+<p>*<em>概念: *</em> 函数和函数作用域的结合</p>
+<p>*<em>通俗理解: *</em> 内部函数使用外部函数的变量, 整个外部函数形成了一个闭包</p>
+<p>###6.1闭包的作用:</p>
+<ol>
+<li>私有化数据</li>
+<li>数据保持</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> money = <span class="number">10000</span>;  <span class="comment">//放到局部作用中,防止全局变量污染(私有化数据)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        queryMoney : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> money;</span><br><span class="line">        &#125;,</span><br><span class="line">        payMoney : <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">            money -= num;</span><br><span class="line">        &#125;,</span><br><span class="line">        addMoney : <span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">            money += num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> moneyManger = main();  <span class="comment">// 通过moneyManger 可以获取到局部的变量money</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>###6.2闭包的缺点: </p>
+<p>  由于内部的函数使用了外部函数的变量,导致外部这个函数无法被回收掉.如果代码中大量的存在闭包,可能会导致内存泄露 (不要刻意使用闭包);</p>
+<h2 id="7-拓展内容"><a href="#7-拓展内容" class="headerlink" title="7.拓展内容"></a>7.拓展内容</h2><p>###7.1 函数的静态成员和实例成员</p>
+<p>成员: 泛指属性和方法</p>
+<p>静态成员: 函数也是对象, 函数自己的属性</p>
+<p>实例成员: 特指构造函数时,写在构造函数体内,通过this.xxx.给实例添加的属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name; <span class="comment">//实例成员</span></span><br><span class="line">    <span class="keyword">this</span>.age = age; <span class="comment">// 实例成员</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.type = <span class="string">'呵呵'</span>; <span class="comment">//静态成员</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-2-Function的原型图"><a href="#7-2-Function的原型图" class="headerlink" title="7.2.Function的原型图"></a>7.2.Function的原型图</h3><p>Functon 自己创造了自己</p>
+<p>Object是Function的实例</p>
+<img src="/2020/04/27/JavaScript%E8%BF%9B%E9%98%B6--02/Function原型图01.png">
+
+
+
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
