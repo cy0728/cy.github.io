@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/12/28/GIT/</loc>
+    
+    <lastmod>2020-04-28T03:01:21.671Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/19/NextJs/</loc>
+    
+    <lastmod>2020-04-28T02:59:13.065Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/25/Flex%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AF%AD%E6%B3%95%E7%AF%87-%E9%98%AE%E4%B8%80%E5%B3%B0/</loc>
+    
+    <lastmod>2020-04-28T02:57:15.181Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
+    
+    <lastmod>2020-04-28T02:54:49.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/20/Create-React-App/</loc>
+    
+    <lastmod>2020-04-28T02:47:59.862Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/09/27/React/</loc>
+    
+    <lastmod>2020-04-28T02:47:35.596Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/09/06/Vue/</loc>
+    
+    <lastmod>2020-04-28T02:45:18.416Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/08/15/WebPack/</loc>
+    
+    <lastmod>2020-04-28T02:44:16.635Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/26/CSS3/</loc>
     
     <lastmod>2020-04-28T02:39:00.917Z</lastmod>

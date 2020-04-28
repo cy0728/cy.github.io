@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>小逸的博客 - 小逸的博客</title><meta name="description"><meta name="author" content="小逸"><meta name="copyright" content="小逸"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/logo.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="小逸的博客"><meta name="twitter:description"><meta name="twitter:image" content="http://yoursite.com/img/%E5%A4%B4%E5%83%8F.jpg"><meta property="og:type" content="website"><meta property="og:title" content="小逸的博客"><meta property="og:url" content="http://yoursite.com/page/2/"><meta property="og:site_name" content="小逸的博客"><meta property="og:description"><meta property="og:image" content="http://yoursite.com/img/%E5%A4%B4%E5%83%8F.jpg"><meta property="article:published_time" content="2020-04-28T03:03:57.538Z"><meta property="article:modified_time" content="2020-04-28T03:03:57.538Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/page/2/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isSidebar: false  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="小逸的博客" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="full_page" id="nav" style="background-image: url(/img/Spider-Man.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">小逸的博客</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="site-info"><h1 id="site_title">小逸的博客</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/cy0728" target="_blank" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="Email" target="_blank" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a></div></div><div id="scroll_down"><i class="fa fa-angle-down scroll-down-effects"></i></div></div><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/06/23/ES6/" title="ES6">     <img class="post_bg lazyload" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1487385531,1597092167&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/06/23/ES6/" title="ES6">ES6</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-06-23 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i>2019-06-23</time></div><div class="content">1.ES6介绍1234567《ECMAScript 6 入门》《深入浅出ES6》              阮一峰http://es6.ruanyifeng.com/ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/06/15/Ajax/" title="Ajax">     <img class="post_bg lazyload" data-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588050813422&amp;di=2f07c3bde4c511f3550a0478e3f573cd&amp;imgtype=0&amp;src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20161128%2F9ebd2f09da4f4c0095daa563589f11ff_th.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ajax"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/06/15/Ajax/" title="Ajax">Ajax</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-06-15 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i>2019-06-15</time></div><div class="content">http 协议
+HTTP协议，即超文本传输协议(Hypertext transfer protocol)。是一种详细规定了浏览器和服务器之间互相通信的规则
+HTTP协议规定了请求 和响应 的标准
+
+请求与请求报文get请求的请求报文详解 
+1234567891011121314151617//--- ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/06/03/JavaScript%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" title="JavaScript内置对象">     <img class="post_bg lazyload" data-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588050593598&amp;di=93a1337c9cc7403816253ba76c3786b0&amp;imgtype=0&amp;src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F00%2F85%2F77%2F1956e9e3afe5091.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript内置对象"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/06/03/JavaScript%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" title="JavaScript内置对象">JavaScript内置对象</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-06-03 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i>2019-06-03</time></div><div class="content">内置对象
+JS内置对象就是指Javascript自带的一些对象，供开发者使用，这些对象提供了一些常用的的功能。
+常见的内置对象有Math、String、Array、Date等
+
+内置对象有很多，我们主要是记下这些内置对象的用法即可。但是同学们也不可能一下子记住这么多的方法，因此当同学们忘了某个方法该 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/05/22/JavaScript%E8%BF%9B%E9%98%B6--02/" title="JavaScript进阶--02">     <img class="post_bg lazyload" data-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588050593598&amp;di=93a1337c9cc7403816253ba76c3786b0&amp;imgtype=0&amp;src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F00%2F85%2F77%2F1956e9e3afe5091.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript进阶--02"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/05/22/JavaScript%E8%BF%9B%E9%98%B6--02/" title="JavaScript进阶--02">JavaScript进阶--02</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-05-22 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i>2019-05-22</time></div><div class="content">基础语法学习目标
+了解
+
+ 重新认识instanceof
+
+- 原型链不可变
+- for..in的问题
+重点
+
+重点
+
+上下文调用模式
+
+js中的继承
+
+闭包
+
+
+
+
+1. 重新认识instanceofjs基础阶段对instanceof作用的描述 : 判断一个对象是否是某个构造函数的实例
+现在我们学 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/05/05/JavaScript%E8%BF%9B%E9%98%B6--01/" title="JavaScript进阶--01">     <img class="post_bg lazyload" data-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588050593598&amp;di=93a1337c9cc7403816253ba76c3786b0&amp;imgtype=0&amp;src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F00%2F85%2F77%2F1956e9e3afe5091.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript进阶--01"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/05/05/JavaScript%E8%BF%9B%E9%98%B6--01/" title="JavaScript进阶--01">JavaScript进阶--01</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2019-05-05 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i>2019-05-05</time></div><div class="content">基础语法学习目标
+了解
+
+
+回顾js基础  变量/数据类型/顺序结构/数组
+构造函数创建对象存在的问题
+
+
+重点
+
+知道函数有原型对象
+
+构造函数,原型对象和实例三者的关系
+
+原型链
+
+会给内置的对象添加自定义的方法
+
+会使用更简单的原型使用方式
+
+
+
+
+1. 回顾1.1 作用域:####1.1.1 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fa fa-fw fa-chevron-left" aria-hidden="true"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">小逸</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">15</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/cy0728" target="_blank" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="Email" target="_blank" title="Email"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">欢迎来到小逸的博客😀</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2019/12/28/GIT/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588052951784&amp;di=4d9f1d7e1adc3def03aad4a43fe2fd15&amp;imgtype=0&amp;src=http%3A%2F%2Fimage.mamicode.com%2Finfo%2F201807%2F20180720154704366185.gif" onerror="this.onerror=null;this.src='/img/404.jpg'" title="GIT" alt="GIT"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/12/28/GIT/" title="GIT">GIT</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-28 00:00:00">2019-12-28</time></div></a></div><div class="aside-recent-post"><a href="/2019/12/19/NextJs/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3155886573,2573739945&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="NextJs" alt="NextJs"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/12/19/NextJs/" title="NextJs">NextJs</div><time class="aside-post_meta post-meta__date" title="发表于 2019-12-19 00:00:00">2019-12-19</time></div></a></div><div class="aside-recent-post"><a href="/2019/11/25/Flex%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AF%AD%E6%B3%95%E7%AF%87-%E9%98%AE%E4%B8%80%E5%B3%B0/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071002.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Flex布局教程：语法篇-阮一峰" alt="Flex布局教程：语法篇-阮一峰"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/11/25/Flex%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AF%AD%E6%B3%95%E7%AF%87-%E9%98%AE%E4%B8%80%E5%B3%B0/" title="Flex布局教程：语法篇-阮一峰">Flex布局教程：语法篇-阮一峰</div><time class="aside-post_meta post-meta__date" title="发表于 2019-11-25 00:00:00">2019-11-25</time></div></a></div><div class="aside-recent-post"><a href="/2019/11/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2455514678,1879015385&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="微信小程序" alt="微信小程序"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/11/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="微信小程序">微信小程序</div><time class="aside-post_meta post-meta__date" title="发表于 2019-11-11 00:00:00">2019-11-11</time></div></a></div><div class="aside-recent-post"><a href="/2019/10/20/Create-React-App/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2035944494,3453366933&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Create-React-App" alt="Create-React-App"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2019/10/20/Create-React-App/" title="Create-React-App">Create-React-App</div><time class="aside-post_meta post-meta__date" title="发表于 2019-10-20 00:00:00">2019-10-20</time></div></a></div></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/12/"><span class="card-archive-list-date">十二月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/11/"><span class="card-archive-list-date">十一月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/09/"><span class="card-archive-list-date">九月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">八月 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/07/"><span class="card-archive-list-date">七月 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/06/"><span class="card-archive-list-date">六月 2019</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/05/"><span class="card-archive-list-date">五月 2019</span><span class="card-archive-list-count">2</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">15</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="05/01/2019">     </div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/Spider-Man.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By 小逸</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: '今日事&#44;今日畢,Never put off till tomorrow what you can do today'.split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: false,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = '今日事&#44;今日畢'
+}</script></body></html>
