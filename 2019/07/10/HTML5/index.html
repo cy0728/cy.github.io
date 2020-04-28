@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTML5 | 小逸的博客</title><meta name="description" content="html5语义化兼容性问题12&lt;!-- 现象: IE8 以下版本不支持 html5 语义化标签 --&gt;&lt;header&gt;我是header标签， 我应该独占一整行&lt;&#x2F;header&gt;  解决方式:  在浏览器解析标签之前, 动态创建一下 header 标签,  浏览器就认识了 1document.createElement(&quot;header&amp;quot"><meta name="author" content="小逸"><meta name="copyright" content="小逸"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/logo.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="HTML5"><meta name="twitter:description" content="html5语义化兼容性问题12&lt;!-- 现象: IE8 以下版本不支持 html5 语义化标签 --&gt;&lt;header&gt;我是header标签， 我应该独占一整行&lt;&#x2F;header&gt;  解决方式:  在浏览器解析标签之前, 动态创建一下 header 标签,  浏览器就认识了 1document.createElement(&quot;header&amp;quot"><meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588051516464&amp;di=43a13bb3fc35bc1cc4e18a380c5e2ca9&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.mobileui.cn%2Fblog%2Fuploads%2F2012%2F09%2F08170053.jpg"><meta property="og:type" content="article"><meta property="og:title" content="HTML5"><meta property="og:url" content="http://yoursite.com/2019/07/10/HTML5/"><meta property="og:site_name" content="小逸的博客"><meta property="og:description" content="html5语义化兼容性问题12&lt;!-- 现象: IE8 以下版本不支持 html5 语义化标签 --&gt;&lt;header&gt;我是header标签， 我应该独占一整行&lt;&#x2F;header&gt;  解决方式:  在浏览器解析标签之前, 动态创建一下 header 标签,  浏览器就认识了 1document.createElement(&quot;header&amp;quot"><meta property="og:image" content="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588051516464&amp;di=43a13bb3fc35bc1cc4e18a380c5e2ca9&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.mobileui.cn%2Fblog%2Fuploads%2F2012%2F09%2F08170053.jpg"><meta property="article:published_time" content="2019-07-09T16:00:00.000Z"><meta property="article:modified_time" content="2020-04-28T02:37:26.357Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2019/07/10/HTML5/"><link rel="prev" title="CSS3" href="http://yoursite.com/2019/07/26/CSS3/"><link rel="next" title="ES6" href="http://yoursite.com/2019/06/23/ES6/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="小逸的博客" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/%E5%A4%B4%E5%83%8F.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#html5语义化兼容性问题"><span class="toc-number">1.</span> <span class="toc-text">html5语义化兼容性问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#html5shiv解决兼容性问题"><span class="toc-number">1.1.</span> <span class="toc-text">html5shiv解决兼容性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS条件注释-了解"><span class="toc-number">1.2.</span> <span class="toc-text">CSS条件注释(了解)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#html5-新增类名操作-熟记"><span class="toc-number">2.</span> <span class="toc-text">html5 新增类名操作(熟记)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#html5-自定义属性操作"><span class="toc-number">3.</span> <span class="toc-text">html5 自定义属性操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络状态"><span class="toc-number">4.</span> <span class="toc-text">网络状态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#网络状态-1"><span class="toc-number">4.1.</span> <span class="toc-text">网络状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#监听网络变化"><span class="toc-number">4.2.</span> <span class="toc-text">监听网络变化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#地理位置"><span class="toc-number">5.</span> <span class="toc-text">地理位置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#隐私"><span class="toc-number">5.1.</span> <span class="toc-text">隐私</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关的方法"><span class="toc-number">5.2.</span> <span class="toc-text">相关的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#百度地图"><span class="toc-number">5.3.</span> <span class="toc-text">百度地图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web存储"><span class="toc-number">6.</span> <span class="toc-text">web存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-number">6.1.</span> <span class="toc-text">cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sessionStorage与localStorage"><span class="toc-number">6.2.</span> <span class="toc-text">sessionStorage与localStorage</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自定义播放器"><span class="toc-number">7.</span> <span class="toc-text">自定义播放器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件读取"><span class="toc-number">8.</span> <span class="toc-text">文件读取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#files"><span class="toc-number">8.1.</span> <span class="toc-text">files</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#file对象"><span class="toc-number">8.2.</span> <span class="toc-text">file对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FileReader对象"><span class="toc-number">8.3.</span> <span class="toc-text">FileReader对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#拖拽"><span class="toc-number">9.</span> <span class="toc-text">拖拽</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#拖拽元素"><span class="toc-number">9.1.</span> <span class="toc-text">拖拽元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标元素-事件监听"><span class="toc-number">9.2.</span> <span class="toc-text">目标元素, 事件监听</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588051516464&amp;di=43a13bb3fc35bc1cc4e18a380c5e2ca9&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.mobileui.cn%2Fblog%2Fuploads%2F2012%2F09%2F08170053.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">小逸的博客</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">HTML5</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-07-10 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-07-10</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-28 10:37:26"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-04-28</span></time></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="html5语义化兼容性问题"><a href="#html5语义化兼容性问题" class="headerlink" title="html5语义化兼容性问题"></a>html5语义化兼容性问题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 现象: IE8 以下版本不支持 html5 语义化标签 --&gt;</span><br><span class="line">&lt;header&gt;我是header标签， 我应该独占一整行&lt;&#x2F;header&gt;</span><br></pre></td></tr></table></figure>
+
+<p>解决方式:</p>
+<ol>
+<li><p>在浏览器解析标签之前, 动态创建一下 header 标签,  浏览器就认识了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.createElement(&quot;header&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认行内, 需要转成块级</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">header &#123;</span><br><span class="line">  &#x2F;* header 标签应该独占一整行 *&#x2F;</span><br><span class="line">  display: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<p>但是 html5 新增了很多语义化标签, 一个个创建太麻烦了, html5shiv 插件很好的解决这个问题</p>
+<h2 id="html5shiv解决兼容性问题"><a href="#html5shiv解决兼容性问题" class="headerlink" title="html5shiv解决兼容性问题"></a>html5shiv解决兼容性问题</h2><p>在head中 引入 html5shiv 插件包即可解决 IE 8 不识别 html5 语义化标签的问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;html5shiv.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是在支持html5语义化标签的浏览器中, 这个js的执行就没有必要, 消耗了性能</p>
+<p>所以我们可以通过 CSS IE条件注释 做兼容性处理</p>
+<h2 id="CSS条件注释-了解"><a href="#CSS条件注释-了解" class="headerlink" title="CSS条件注释(了解)"></a>CSS条件注释(了解)</h2><p>CSS IE条件注释  专门用于兼容IE 低版本 </p>
+<p>所以只有 IE9 及 IE9以下版本 才认识，其他版本的浏览器或者 IE10以上 的版本会当成注释,  不会解析  </p>
+<p>它里面有判断IE版本的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lte：就是Less than or equal to的简写，也就是小于或等于的意思。</span><br><span class="line">lt ：就是Less than的简写，也就是小于的意思。</span><br><span class="line">gte：就是Greater than or equal to的简写，也就是大于或等于的意思。</span><br><span class="line">gt ：就是Greater than的简写，也就是大于的意思。</span><br></pre></td></tr></table></figure>
+
+<p>用法实例: </p>
+<p>在小于等于 IE 8 的浏览器中才会执行, 在IE9 中, 就是普通的注释, 不会解析执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if lte IE 8]&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      alert(&quot;呵呵, 小于等于IE8都会执行这段话&quot;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;html5shiv.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+
+<p>大于 IE 8 的浏览器才执行, 只有 IE 9 认识, 其他浏览器, IE 10 及以上, 都将条件注释当成注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if gt IE 8]&gt;</span><br><span class="line">   &lt;script&gt;</span><br><span class="line">      alert(&quot;只有IE9才执行这句话&quot;);</span><br><span class="line">   &lt;&#x2F;script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="html5-新增类名操作-熟记"><a href="#html5-新增类名操作-熟记" class="headerlink" title="html5 新增类名操作(熟记)"></a>html5 新增类名操作(熟记)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">四个操作样式类的方法, 很简单, 需要熟记</span><br><span class="line">1. 添加类: dom.classList.add   </span><br><span class="line">2. 移除类: dom.classList.remove</span><br><span class="line">3. 判断类: dom.classList.contains</span><br><span class="line">4. 切换类: dom.classList.toggle</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="html5-自定义属性操作"><a href="#html5-自定义属性操作" class="headerlink" title="html5 自定义属性操作"></a>html5 自定义属性操作</h1><p>将来在工作中, 有一种很常见的做法, 就是将数据绑定在标签自定义属性中, 我们之前都需要通过 getAttribute 或者 setAttribute 一个一个获取,  当数据很多时, 就很麻烦</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">html5 提供了一种更简单存取数据的方式 dataset</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 用法:</span><br><span class="line">1. 存的时候, 在属性名前面加上 data-, </span><br><span class="line">   &lt;div class&#x3D;&quot;pp&quot; data-uage&#x3D;&quot;18&quot; data-uname&#x3D;&quot;鹏鹏&quot; data-sex&#x3D;&quot;男&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">	  </span><br><span class="line">2. 取的时候, 通过 dataset.属性名取, </span><br><span class="line">   例如: box.dataset.uage 或者 box.dataset[&quot;uage&quot;]</span><br><span class="line">	  </span><br><span class="line">3. 修改添加, 直接通过对象属性操作方式操作即可</span><br><span class="line">   例如: box.dataset.uage&#x3D;12</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="网络状态"><a href="#网络状态" class="headerlink" title="网络状态"></a>网络状态</h1><blockquote>
+<p>在移动端，我们经常需要检测设置是在线还是离线，HTML5为此定义了一个navigator.onLine属性，这个属性用于检测设备是否联网。</p>
+</blockquote>
+<h2 id="网络状态-1"><a href="#网络状态-1" class="headerlink" title="网络状态"></a>网络状态</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">navigator.onLine返回用户当前的网络状况，是一个布尔值</span><br><span class="line"><span class="number">1.</span> 如果浏览器连不上网(包括局域网)，就是离线状态，也就是脱机状态，会返回<span class="literal">false</span></span><br><span class="line"><span class="number">2.</span> 否则就是在线状态，返回<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：返回true不一定就是说一定能访问互联网，因为有可能连接的是局域网。但是返回false则表示一定没连上网。</strong></p>
+<h2 id="监听网络变化"><a href="#监听网络变化" class="headerlink" title="监听网络变化"></a>监听网络变化</h2><blockquote>
+<p>为了更好的确定网络是否连接，HTML5还定义了两个事件，用于监听网络状态的变化。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//网络连接时会被调用</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"online"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"online"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//网络断开时会被调用</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"offline"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"offline"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="地理位置"><a href="#地理位置" class="headerlink" title="地理位置"></a>地理位置</h1><blockquote>
+<p>在HTML规范中，增加了获取用户地理信息的API，这样使得我们可以基于用户位置开发互联网应用，即基于位置服务LBS(Location Base Service)</p>
+</blockquote>
+<h2 id="隐私"><a href="#隐私" class="headerlink" title="隐私"></a>隐私</h2><p>HTML5规范提供了一套保护用户隐私的机制。必须先得到用户明确许可，才能获取用户的位置信息。</p>
+<p><strong>在获取地理位置之前，会询问用户，只有在获得许可之后，才能获取到用户的位置信息。</strong></p>
+<h2 id="相关的方法"><a href="#相关的方法" class="headerlink" title="相关的方法"></a>相关的方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//successCallback:获取成功后会调用,并返回一个position对象，里面包含了地理位置信息</span></span><br><span class="line"><span class="comment">//获取失败了会调用，并返回error对象，里面包含了错误信息。</span></span><br><span class="line"><span class="comment">//获取当前的地理位置信息</span></span><br><span class="line">navigator.geolocation.getCurrentPosition(successCallback, errorCallback)</span><br><span class="line"><span class="comment">//重复的获取当前的地理位置信息</span></span><br><span class="line">navigator.geolocation.watchPosition(successCallback, errorCallback)</span><br></pre></td></tr></table></figure>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span>(<span class="params">position</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 定位成功会调用该方法</span></span><br><span class="line">    <span class="comment">// position.coords.latitude 纬度</span></span><br><span class="line">    <span class="comment">// position.coords.longitude 经度</span></span><br><span class="line">    <span class="comment">// position.coords.accuracy 精度</span></span><br><span class="line">    <span class="comment">// position.coords.altitude 海拔高度</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 定位失败会调用该方法</span></span><br><span class="line">    <span class="comment">// error 是错误信息</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>PC端: <strong>chrome,火狐定位请求的页面要求要是https协议的, 所以PC端测试在IE下测试</strong></p>
+<p>移动端: <strong>在iOS 10中，苹果对webkit定位权限进行了修改，定位请求的页面必须是https协议的。</strong></p>
+<h2 id="百度地图"><a href="#百度地图" class="headerlink" title="百度地图"></a>百度地图</h2><blockquote>
+<p>仅仅获取到经纬度对于用户来说意义并不大，因为用户也不知道经度和纬度表示的是地球上的哪一个地方，因为我们可以结合百度地图，准确的将用户的位置显示出来。</p>
+</blockquote>
+<p>百度地图官网：<a href="http://lbsyun.baidu.com/" target="_blank" rel="noopener">http://lbsyun.baidu.com/</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 在开发中，找到javascript API</span><br><span class="line"><span class="number">2.</span> 直接查看示例demo</span><br><span class="line"><span class="number">3.</span> 复制相应的代码，替换掉秘钥就行，秘钥只需创建一个新的应用就可以了。</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="web存储"><a href="#web存储" class="headerlink" title="web存储"></a>web存储</h1><blockquote>
+<p>在代码执行的时候，数据都是存储在内存中的，当页面关闭或者浏览器关闭的时候，内存就被释放掉了。数据只有存储在硬盘上，才不会被释放。</p>
+</blockquote>
+<p>web存储初体验</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//存储在内存中，会被释放</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"hello world"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br><span class="line"></span><br><span class="line"><span class="comment">//存储在硬盘上，不会被释放</span></span><br><span class="line">localStorage.setItem(<span class="string">"name"</span>, <span class="string">"张三"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(localStorage.getItem(<span class="string">"name"</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><blockquote>
+<p>传统方式，我们以document.cookie进行存储，但是存储起来特别麻烦，并且，存储大小只有4k，常用来做会话保持, 存sessionId。每次请求都会带上cookie</p>
+</blockquote>
+<p>cookie是以字符串形式存在的，这个字符串有固定的格式：key=value;key1=value1;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"name=zhangsan"</span>;</span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"age=18"</span>;</span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"sex=23"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//读取cookie</span></span><br><span class="line"><span class="keyword">var</span> result = <span class="built_in">document</span>.cookie;</span><br><span class="line"><span class="built_in">console</span>.log(result);</span><br></pre></td></tr></table></figure>
+
+<p>使用原生js操作cookie太过麻烦，使用jquery.cookie插件，能够简化我们的操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置cookie</span></span><br><span class="line">$.cookie(<span class="string">"name"</span>, <span class="string">"zs"</span>);</span><br><span class="line"><span class="comment">//获取cookie</span></span><br><span class="line"><span class="built_in">console</span>.log($.cookie(<span class="string">"name"</span>));</span><br><span class="line"><span class="comment">//删除cookie</span></span><br><span class="line">$.removeCookie(<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="sessionStorage与localStorage"><a href="#sessionStorage与localStorage" class="headerlink" title="sessionStorage与localStorage"></a>sessionStorage与localStorage</h2><blockquote>
+<p>HTML5规范提出了解决方案，使用sessionStorage和localStorage存储数据。设置、读取、删除操作很方便</p>
+</blockquote>
+<p>window.sessionStorage的特点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 声明周期为关闭浏览器窗口</span><br><span class="line"><span class="number">2.</span> 不能在多个窗口下共享数据。</span><br><span class="line"><span class="number">3.</span> 大小为<span class="number">5</span>M</span><br></pre></td></tr></table></figure>
+
+<p>window.localStorage的特点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 永久生效，除非手动删除</span><br><span class="line"><span class="number">2.</span> 可以多个窗口共享</span><br><span class="line"><span class="number">3.</span> 大小为<span class="number">5</span>M</span><br></pre></td></tr></table></figure>
+
+<p>window.sessionStorage与window.localStorage的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setItem(key, value) <span class="comment">//设置存储内容</span></span><br><span class="line">getItem(key) <span class="comment">//读取存储内容</span></span><br><span class="line">removeItem(key) <span class="comment">//删除键值为key的存储内容</span></span><br><span class="line">clear() <span class="comment">//清空所有存储内容</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>面试题：请描述一下cookie，sessionStorage和localStorage的区别？</strong></p>
+<h1 id="自定义播放器"><a href="#自定义播放器" class="headerlink" title="自定义播放器"></a>自定义播放器</h1><p>全屏切换API：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">video.requestFullScreen()</span><br></pre></td></tr></table></figure>
+<p>方法：load()、play()、pause()<br>属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">currentTime:当前时间</span><br><span class="line">duration：总长时间</span><br><span class="line">timeupdate:播放进度更改时触发</span><br><span class="line">volume：控制音量</span><br></pre></td></tr></table></figure>
+
+
+<p>参考文档<br><a href="http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp</a></p>
+<p>推荐网站：<a href="https://www.awesomes.cn/" target="_blank" rel="noopener">https://www.awesomes.cn/</a></p>
+<p>video.js </p>
+<h1 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h1><blockquote>
+<p>通过FileReader对象我们可以读取本地存储的文件，可以使用 File 对象来指定所要读取的文件或数据。其中File对象可以是来自用户在一个 <input> 元素上选择文件后返回的FileList 对象，也可以来自由拖放操作生成的  DataTransfer</p>
+</blockquote>
+<h2 id="files"><a href="#files" class="headerlink" title="files"></a>files</h2><p>对于file类型的input框，在这个DOM对象中，存在一个files属性，这个属性是FileList对象，是一个伪数组，里面存储着上传的所有文件，当input框指定了multiple属性之后，就可以上传多个文件了。</p>
+<p>也就是说，通过files这个属性，我们就可以获取到所有上传的文件。</p>
+<h2 id="file对象"><a href="#file对象" class="headerlink" title="file对象"></a>file对象</h2><p>File对象中包含了文件的最后修改时间、文件名、文件类型等信息。</p>
+<h2 id="FileReader对象"><a href="#FileReader对象" class="headerlink" title="FileReader对象"></a>FileReader对象</h2><p>FileReader是一个HTML5新增的对象，用于读取文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个fileReader对象</span></span><br><span class="line"><span class="keyword">var</span> fr = <span class="keyword">new</span> FileReader;</span><br><span class="line"><span class="comment">//读取文件的两个方法</span></span><br><span class="line">readAsText() 以文本的方式读取文件</span><br><span class="line">readAsDataURL() 以DataURL形式读取文件</span><br><span class="line"><span class="comment">//文件读取完成事件：</span></span><br><span class="line">fr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="comment">//当文件读取完成，可以通过result属性获取结果</span></span><br><span class="line">fr.result</span><br></pre></td></tr></table></figure>
+<p>参考资料：<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader#toc" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader#toc</a></p>
+<p>案例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> file = <span class="built_in">document</span>.getElementById(<span class="string">"file"</span>);</span><br><span class="line">    <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line"></span><br><span class="line">    file.addEventListener(<span class="string">"change"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.dir(file);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//files:里面存储了所有上传的文件</span></span><br><span class="line">        <span class="comment">//这个data就是我们上传的那个文件</span></span><br><span class="line">        <span class="keyword">var</span> data = file.files[<span class="number">0</span>]</span><br><span class="line">      </span><br><span class="line">        <span class="comment">//1. 创建一个文件读取器</span></span><br><span class="line">        <span class="keyword">var</span> fr = <span class="keyword">new</span> FileReader();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2. 让文件读取器读取整个文件</span></span><br><span class="line">        fr.readAsDataURL(data);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3. 等待文件读取完</span></span><br><span class="line">        <span class="comment">//onload：文件读取完成后，就会触发</span></span><br><span class="line">        fr.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">"img"</span>);</span><br><span class="line">            img.src = fr.result;</span><br><span class="line">            box.innerHTML = <span class="string">""</span>;</span><br><span class="line">            box.appendChild(img);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="拖拽"><a href="#拖拽" class="headerlink" title="拖拽"></a>拖拽</h1><p>在HTML5的规范中，我们可以通过为元素增加draggable=”true”来设置此元素是否可以进行拖拽操作，其中图片、链接默认是开启的。</p>
+<h2 id="拖拽元素"><a href="#拖拽元素" class="headerlink" title="拖拽元素"></a>拖拽元素</h2><p>页面中设置了draggable=”true”属性的元素，其中<code>&lt;img&gt;</code>、<code>&lt;a&gt;</code>标签默认是可以被拖拽的</p>
+<h2 id="目标元素-事件监听"><a href="#目标元素-事件监听" class="headerlink" title="目标元素, 事件监听"></a>目标元素, 事件监听</h2><p>页面中任何一个元素都可以成为目标元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ondragover	应用于目标元素，当停留在目标元素上时调用</span><br><span class="line">ondrop		应用于目标元素，当在目标元素上松开鼠标时调用(浏览器默认不让拖拽，需要组织dragover的默认行为。)</span><br></pre></td></tr></table></figure></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">小逸</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2019/07/10/HTML5/">http://yoursite.com/2019/07/10/HTML5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">小逸的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588051543473&amp;di=67f191093aa1a813125aa3036b4aaf85&amp;imgtype=0&amp;src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2340366615%2C2853341379%26fm%3D214%26gp%3D0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/07/26/CSS3/"><img class="prev_cover lazyload" data-src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588051543473&amp;di=67f191093aa1a813125aa3036b4aaf85&amp;imgtype=0&amp;src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D2340366615%2C2853341379%26fm%3D214%26gp%3D0.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">CSS3</div></div></a></div><div class="next-post pull_right"><a href="/2019/06/23/ES6/"><img class="next_cover lazyload" data-src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1487385531,1597092167&amp;fm=26&amp;gp=0.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ES6</div></div></a></div></nav></article></main><footer id="footer" style="background-image: url(https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1588051516464&amp;di=43a13bb3fc35bc1cc4e18a380c5e2ca9&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.mobileui.cn%2Fblog%2Fuploads%2F2012%2F09%2F08170053.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By 小逸</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script></body></html>
